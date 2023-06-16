@@ -33,16 +33,29 @@
 
 const express = require('express');
 const app = express();
+
+// feedback router
+const api = require('./routes/index');
+
+
 const PORT = process.env.PORT || 3001;
 
 
 
-
+// middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// middleware to serve up static assets from public folder
 app.use(express.static("public"));
 
 
+api.use('/api', api);
+
+// view route for homepage
+app.get('/', (req, res) =>
+res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 
 
