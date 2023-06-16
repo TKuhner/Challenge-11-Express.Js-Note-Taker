@@ -32,15 +32,18 @@
 // use the helper folder for your uuid and utils
 
 const express = require("express");
-const path = require("path");
-
 const app = express();
 
+// sets an initial port for listeners
 const PORT = process.env.PORT || 3000;
 
+
+
+// sets up the express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// app listening on PORT 3000 or process.env.PORT
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
