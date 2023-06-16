@@ -35,15 +35,25 @@ const express = require("express");
 const app = express();
 
 // sets an initial port for listeners
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-
+// require routes
+const dbRouter = require("./routes/dbRoutes");
+const htmlRouter = require("./routes/htmlRoutes");
 
 // sets up the express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app listening on PORT 3000 or process.env.PORT
+// middleware to serve static files
+app.use(express.static("public"));
+app.use(express.static("db"));
+
+// 
+app.use(dbRouter);
+app.use(htmlRouter);
+
+// app listening on PORT 3000
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
