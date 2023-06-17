@@ -44,6 +44,7 @@ const notesRouter = require('./routes/notesRoutes');
 // 
 
 // feedback router
+app.use('/api', api);
 
 
 
