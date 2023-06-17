@@ -41,6 +41,7 @@ const api = require('./routes/index');
 // 
 const PORT = process.env.PORT || 3001;
 
+app.use('/api', api);
 
 
 // middleware for parsing JSON and urlencoded form data
@@ -51,9 +52,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.static("db"));
 app.use(express.static("routes"));
-
-
-// api.use('/api', api);
 
 // view route for homepage
 app.get('/', (req, res) =>

@@ -1,5 +1,8 @@
-const notes = require('express').Router();
+const express = require('express')
+const notes = express.Router();
 const uuid = require('../helpers/uuid');
+
+
 
 // helper functions
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
@@ -14,7 +17,9 @@ notes.get('/', (req, res) => {
 notes.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
-    const { title, text } = req.body;
+    const {title, text} = req.body;
+    console.log(title, text);
+    console.log(req.body);
 
     if (req.body) {
         const newNote = {
