@@ -33,13 +33,17 @@
 
 const express = require('express');
 const app = express();
-
-// feedback router
-const api = require('./routes/index');
-
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
+const api = require('./routes/index');
+const notesRouter = require('./routes/notesRoutes');
+// const htmlRouter = require('./routes/htmlRoutes');
+
+// 
+
+app.use('/api', api);
 
 
 // middleware for parsing JSON and urlencoded form data
@@ -48,9 +52,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // middleware to serve up static assets from public folder
 app.use(express.static("public"));
+app.use(express.static("db"));
+app.use(express.static("routes"));
 
-
-api.use('/api', api);
 
 // view route for homepage
 app.get('/', (req, res) =>
@@ -61,6 +65,11 @@ res.sendFile(path.join(__dirname, '/public/index.html'))
 app.get('/notes', (req, res) =>
 res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
 
 // listener
 app.listen(PORT, () =>
