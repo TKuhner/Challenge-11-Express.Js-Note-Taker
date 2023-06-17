@@ -35,7 +35,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-<<<<<<< HEAD
 const PORT = process.env.PORT || 3001;
 
 const api = require('./routes/index');
@@ -44,15 +43,8 @@ const notesRouter = require('./routes/notesRoutes');
 
 // 
 
-=======
 // feedback router
-const api = require('./routes/index');
 
-// 
-const PORT = process.env.PORT || 3001;
-
->>>>>>> ab047be141c9c21e3286feb0ded6b9ab16380438
-app.use('/api', api);
 
 
 // middleware for parsing JSON and urlencoded form data
@@ -64,10 +56,6 @@ app.use(express.static("public"));
 app.use(express.static("db"));
 app.use(express.static("routes"));
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ab047be141c9c21e3286feb0ded6b9ab16380438
 // view route for homepage
 app.get('/', (req, res) =>
 res.sendFile(path.join(__dirname, '/public/index.html'))
@@ -82,10 +70,6 @@ app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ab047be141c9c21e3286feb0ded6b9ab16380438
 // listener
 app.listen(PORT, () =>
 console.log(`App listening at http://localhost:${PORT} 🚀`)
