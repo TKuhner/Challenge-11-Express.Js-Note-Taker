@@ -33,11 +33,12 @@
 
 const express = require('express');
 const app = express();
+const path = require('path');
 
 // feedback router
 const api = require('./routes/index');
 
-
+// 
 const PORT = process.env.PORT || 3001;
 
 
@@ -48,9 +49,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // middleware to serve up static assets from public folder
 app.use(express.static("public"));
+app.use(express.static("db"));
+app.use(express.static("routes"));
 
 
-api.use('/api', api);
+// api.use('/api', api);
 
 // view route for homepage
 app.get('/', (req, res) =>
@@ -60,6 +63,10 @@ res.sendFile(path.join(__dirname, '/public/index.html'))
 // view route for notes page
 app.get('/notes', (req, res) =>
 res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 // listener
