@@ -56,8 +56,8 @@ app.use(express.urlencoded({ extended: true }));
 // middleware to serve up static assets from public folder
 app.use(express.static("public"));
 
+// route to index.js to then control view and api routes
 app.use(api);
-
 
 // listener
 app.listen(PORT, () =>
