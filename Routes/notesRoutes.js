@@ -40,7 +40,9 @@ router.delete('/:id', (req, res) => {
 
     // read the notes database
     readFromFile('./db/db.json', 'utf8', (err, data) => {
-        if (err) throw err;
+        if (err){
+            throw err;
+        } 
 
         // get the id of the note to be able to remove
         let noteId = req.params.id;
@@ -54,7 +56,9 @@ router.delete('/:id', (req, res) => {
 
         // write the updated array of notes with the deleted missing
         fs.writeFile('./db/db.json', JSON.stringify(updatedNotes, null, 4), (err) => {
-            if (err) throw err;
+            if (err){
+                throw err;
+            } 
 
             console.log("Note deleted");
             return res.status(200).json(updatedNotes);
