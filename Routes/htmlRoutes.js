@@ -1,20 +1,20 @@
-// const path = require('path');
+const path = require('path');
 
-// const express = require('express');
-// const html = express();
+const router = require('express').Router();
 
-// // view route for homepage
-// html.get('/', (req, res) =>
-// res.sendFile(path.join(__dirname, '/public/index.html'))
-// );
+// view route for homepage
+router.get('/', (req, res) =>
+res.sendFile(path.join(__dirname, '../public/index.html'))
+);
 
-// // view route for notes page
-// html.get('/notes', (req, res) =>
-// res.sendFile(path.join(__dirname, '/public/notes.html'))
-// );
+// view route for notes page
+router.get('/notes', (req, res) =>
+res.sendFile(path.join(__dirname, '../public/notes.html'))
+);
 
-// html.get('*', (req, res) =>
-//     res.sendFile(path.join(__dirname, '/public/index.html'))
-// );
+// wildcard route for homepage
+router.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/index.html'))
+);
 
-// module.exports = html;
+module.exports = router;
