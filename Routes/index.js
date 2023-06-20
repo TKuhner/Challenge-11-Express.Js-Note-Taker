@@ -8,4 +8,5 @@ const htmlRouter = require('./htmlRoutes'); // /html
 router.use('/api/notes', notesRouter);
 router.use('/', htmlRouter);
 
+// export our router to be used in server.js
 module.exports = router;
