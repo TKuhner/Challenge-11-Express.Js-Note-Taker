@@ -39,7 +39,7 @@ const notes = require('./db/db.json')
 
 const app = express();
 
-const api = require('./routes/index');
+const api = require('./routes/index.js');
 
 // helper functions
 const { readFromFile, readAndAppend, writeToFile } = require('./helpers/fsUtils');
@@ -63,4 +63,3 @@ app.use(api);
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
-
