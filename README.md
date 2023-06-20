@@ -11,6 +11,13 @@ An application to write, save, and delete notes. Uses an express back-end to sav
 ### Deployed App
 https://floating-thicket-79582-2e51ed9b9526.herokuapp.com/
 
+## Usage
+- Click "Get Started" button to navigate to note tracker.
+- Input title text and note text in relevant fields.
+- After text has been entered, press the save icon in the top right corner to save note.
+- Click on the title on the left hand side to pull up saved notes.
+- Click on the corresponding trashcan icon to delete the corresponding note.
+
 ### Technologies Used
 - Node.js
 - Express.js
